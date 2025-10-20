@@ -193,8 +193,7 @@ class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
   @override
-  Widget build(BuildContext context)
-    {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -205,96 +204,97 @@ class RegisterPage extends StatelessWidget {
         ),
         foregroundColor: Colors.white,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 20),
               const Text(
-              'REGÍSTRATE AHORA',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 90),
-
-            TextField(
-              
-              style: const TextStyle(color: Colors.white),
-              cursorColor: Colors.white,
-              decoration: InputDecoration(
-                labelText: 'Nombre completo',
-                labelStyle: const TextStyle(color: Colors.white),
-                prefixIcon: const Icon(Icons.person, color: Colors.white),
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                'REGÍSTRATE AHORA',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              style: const TextStyle(color: Colors.white),
-              cursorColor: Colors.white,
-              decoration: InputDecoration(
-                labelText: 'Correo electrónico',
-                labelStyle: const TextStyle(color: Colors.white),
-                prefixIcon: const Icon(Icons.email, color: Colors.white),
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              obscureText: true,
-              style: const TextStyle(color: Colors.white),
-              cursorColor: Colors.white,
-              decoration: InputDecoration(
-                labelText: 'Contraseña',
-                labelStyle: const TextStyle(color: Colors.white),
-                prefixIcon: const Icon(Icons.lock, color: Colors.white),
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
+              const SizedBox(height: 40),
+              TextField(
+                style: const TextStyle(color: Colors.white),
+                cursorColor: Colors.white,
+                decoration: InputDecoration(
+                  labelText: 'Nombre completo',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  prefixIcon: const Icon(Icons.person, color: Colors.white),
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 60),
-            // Título grande justo antes del botón
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                minimumSize: const Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+              const SizedBox(height: 20),
+              TextField(
+                style: const TextStyle(color: Colors.white),
+                cursorColor: Colors.white,
+                decoration: InputDecoration(
+                  labelText: 'Correo electrónico',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  prefixIcon: const Icon(Icons.email, color: Colors.white),
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
                 ),
               ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'REGÍSTRATE',
-                style: TextStyle(fontSize: 18, color: Colors.black),
+              const SizedBox(height: 20),
+              TextField(
+                obscureText: true,
+                style: const TextStyle(color: Colors.white),
+                cursorColor: Colors.white,
+                decoration: InputDecoration(
+                  labelText: 'Contraseña',
+                  labelStyle: const TextStyle(color: Colors.white),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.white),
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 40),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'REGÍSTRATE',
+                  style: TextStyle(fontSize: 18, color: Colors.black),
+                ),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
@@ -311,4 +311,3 @@ class RegisterPage extends StatelessWidget {
     );
   }
 }
-// FIN PANTALLA DE REGISTRO
