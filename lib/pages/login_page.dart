@@ -12,6 +12,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool isPasswordVisible = false;
 
   Future<void> loginUser() async {
     final email = emailController.text.trim();
@@ -47,13 +48,13 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           SingleChildScrollView(
-            padding: const EdgeInsets.all(40),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 100),
+                const SizedBox(height: 50),
                 const Text('Iniciar Sesión', style: TextStyle(fontSize: 32, color: Colors.white)),
-                const SizedBox(height: 300),
+                const SizedBox(height: 200),
                 TextField(
                   controller: emailController,
                   style: const TextStyle(color: Colors.white),
@@ -63,18 +64,29 @@ class _LoginPageState extends State<LoginPage> {
                     border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 50),
                 TextField(
                   controller: passwordController,
-                  obscureText: true,
+                  obscureText: !isPasswordVisible,
                   style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Contraseña',
-                    labelStyle: TextStyle(color: Colors.white),
-                    border: OutlineInputBorder(),
+                    labelStyle: const TextStyle(color: Colors.white),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          isPasswordVisible = !isPasswordVisible;
+                        });
+                      },
+                    ),
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: loginUser,
                   child: const Text('ENTRAR'),
